@@ -1,0 +1,19 @@
+{
+  "name": "opennyc-viz",
+  "version": "1.0.0",
+  "description": "server for opennyc data",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "rob herley",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^2.2.3",
+    "koa": "^2.7.0",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "pg": "^7.9.0"
+  }
+}

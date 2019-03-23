@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>OpenNYC - Motor Vehicle Collisions</title>
+  </head>
+  <body>
+    <div id="controls">
+      <h1>Motor Vehicle Collisions</h1>
+      <div id="buttons">
+        <button class="active" type="button">Daily Accidents</button>
+        <button type="button">Total Deaths</button>
+      </div>
+      <div id="inner_controls"></div>
+      <div class="mono footer">
+        Rob Herley &middot;
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/robherley/opennyc-viz"
+          >Source Code</a
+        >
+        &middot; Data from
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95"
+          >OpenNYC</a
+        >
+      </div>
+    </div>
+    <div id="map_container"></div>
+    <div id="tooltip"></div>
+    <script src="//d3js.org/d3.v5.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="//unpkg.com/dayjs"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
