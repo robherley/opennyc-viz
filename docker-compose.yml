@@ -13,9 +13,10 @@ services:
       traefik.backend: 'opennyc-node'
       traefik.docker.network: 'traefik_proxy'
     environment:
-      - PGHOST=db
-      - PGDATABASE=hst325
-      - PGPASSWORD
+        - PGHOST=db
+        - PGDATABASE=hst325
+        - PGUSER=postgres
+        - PGPASSWORD
     restart: always
     depends_on:
       - db
@@ -23,6 +24,11 @@ services:
   db:
     image: postgres
     container_name: 'opennyc-postgres'
+    environment:
+        - POSTGRES_PASSWORD
+        - POSTGRES_DB=hst325
+    ports:
+      - '5000:5432'
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
     restart: always

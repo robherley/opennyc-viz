@@ -171,7 +171,7 @@ class NYCViz {
 
   async fetchData(route) {
     try {
-      const response = await fetch(`http://localhost:3000${route}`);
+      const response = await fetch(route);
       const json = await response.json();
       return json;
     } catch (err) {
