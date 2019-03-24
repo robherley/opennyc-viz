@@ -44,7 +44,9 @@ app.use(
 const accidents = {
   countBy: t => async ctx => {
     try {
-      const { rows } = await ctx.db.query(`SELECT * FROM accidents_by_${t}`);
+      const { rows } = await ctx.db.query(
+        `SELECT *, accidentdate::string FROM accidents_by_${t}`
+      );
       ctx.body = rows;
     } catch (err) {
       ctx.throw(500, err);
@@ -54,7 +56,7 @@ const accidents = {
     if (typeof ctx.request.query.date !== 'undefined') {
       try {
         const { rows } = await ctx.db.query(
-          `SELECT * FROM accidents 
+          `SELECT *, accidentdate::string FROM accidents 
            WHERE accidentDate = $1::date AND 
            (latitude IS NOT NULL) AND (longitude IS NOT NULL)`,
           [ctx.request.query.date]
@@ -70,7 +72,7 @@ const accidents = {
   totalDeaths: async ctx => {
     try {
       const { rows } = await ctx.db.query(
-        `SELECT * FROM deaths 
+        `SELECT *, accidentdate::string FROM deaths 
          WHERE (latitude IS NOT NULL) AND (longitude IS NOT NULL)`
       );
       ctx.body = rows;
